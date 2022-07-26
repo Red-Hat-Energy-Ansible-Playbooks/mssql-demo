@@ -9,5 +9,5 @@
     dest: /tmp/mssql-demo
     
 - name: SQL Script Execution
-  ansible.builtin.command: '/opt/mssql-tools/bin/sqlcmd -S {{ HOSTNAME }} -U sa -P "{{ sa_password }}" -i "/tmp/mssql-demo/files/northwind-pubs/instpubs.sql"'
+  ansible.builtin.command: '/opt/mssql-tools/bin/sqlcmd -S {{ sql_host }},{{ sql_port }} -U sa -P "{{ sa_password }}" -i "/tmp/mssql-demo/files/northwind-pubs/instpubs.sql"'
   register: sqlcmd_out
