@@ -1,0 +1,20 @@
+## Ansible MSSQL Playbook
+
+- name: mssql-demo
+  hosts: dev.home.local
+
+  roles:
+   - pre-reqs
+   - microsoft.sql.server
+   - load-data
+    
+  collections: 
+    - microsoft.sql
+
+  vars:
+    mssql_accept_microsoft_odbc_driver_17_for_sql_server_eula: true
+    mssql_accept_microsoft_cli_utilities_for_sql_server_eula: true
+    mssql_accept_microsoft_sql_server_standard_eula: true
+    mssql_password: '{{ sa_password }}'
+    mssql_edition: Developer
+    mssql_tcp_port: '{{ sql_port }}'

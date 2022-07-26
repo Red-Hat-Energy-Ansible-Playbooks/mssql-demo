@@ -1,0 +1,5 @@
+- name: "Open Port on Firewall"
+  ansible.posix.firewalld:
+    port: '{{ sql_port }}/tcp'
+    permanent: yes
+    state: enabled

@@ -1,0 +1,8 @@
+---
+roles:
+  # Install a role from Ansible Hub.
+  - name: microsoft.sql.server
+
+collections:
+  # Install a collection from Ansible Hub.
+  - name: microsoft.sql

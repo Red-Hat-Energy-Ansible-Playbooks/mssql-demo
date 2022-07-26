@@ -1,0 +1,13 @@
+- name: Delete existing dist folder
+  file:
+    path: "/tmp/mssql-demo"
+    state: absent
+
+- name: Clone sample database repo
+  ansible.builtin.git:
+    repo: https://github.com/Red-Hat-Energy-Ansible-Playbooks/mssql-demo
+    dest: /tmp/mssql-demo
+    
+- name: SQL Script Execution
+  ansible.builtin.command: '/opt/mssql-tools/bin/sqlcmd -S {{ HOSTNAME }} -U sa -P "{{ sa_password }}" -i "./files/adventure-works/data-warehouse-install-script/instawdbdw.sql"'
+  register: sqlcmd_out
