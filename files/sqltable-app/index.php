@@ -3,9 +3,9 @@
  
 // Username is root
 $user = 'sa';
-$password = 'RedHat2020!';
+$password = '###' ; // add SQL db password for demo database
  
-// Database name is geeksforgeeks
+// Database name is pubs in this demo
 $database = 'pubs';
  
 // Server is localhost with
