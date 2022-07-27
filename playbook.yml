@@ -15,7 +15,8 @@
     - name: Ensure firewall ports are open for SQL microsoft.sql.server
       include_role: 
         name: pre-reqs
-    
+      become: yes
+      
     - name: Execute SQL Server install 
       include_role:
         name: microsoft.sql.server

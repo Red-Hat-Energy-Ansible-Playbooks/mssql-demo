@@ -3,4 +3,3 @@
     port: '{{ sql_port }}/tcp'
     permanent: yes
     state: enabled
-    become: yes
