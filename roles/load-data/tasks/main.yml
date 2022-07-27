@@ -9,7 +9,6 @@
   ansible.builtin.git:
     repo: https://github.com/Red-Hat-Energy-Ansible-Playbooks/mssql-demo
     dest: /tmp/mssql-demo
-    state: absent
     
 - name: SQL Script Execution
   # Hardcoded file path/name.  Change to var at some point so any sql script an be used.
