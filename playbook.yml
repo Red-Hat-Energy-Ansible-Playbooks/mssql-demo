@@ -26,7 +26,6 @@
           mssql_password: '{{ sa_password }}'
           mssql_edition: Developer
           mssql_tcp_port: '{{ sql_port }}'
-        become: yes
 
     - name: Connect to server and load sample database
       include_role:
