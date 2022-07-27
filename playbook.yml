@@ -3,11 +3,6 @@
 - name: mssql-demo
   hosts: '{{ sql_host }}'
   become: yes
-
-  # roles:
-  #  - pre-reqs
-  #  - microsoft.sql.server
-  #  - load-data
     
   collections: 
     - microsoft.sql
