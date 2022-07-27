@@ -2,19 +2,28 @@
 
 - name: mssql-demo
   hosts: '{{ sql_host }}'
-
-  roles:
-   - pre-reqs
-   - microsoft.sql.server
-   - load-data
+  become: yes
     
   collections: 
     - microsoft.sql
 
-  vars:
-    mssql_accept_microsoft_odbc_driver_17_for_sql_server_eula: true
-    mssql_accept_microsoft_cli_utilities_for_sql_server_eula: true
-    mssql_accept_microsoft_sql_server_standard_eula: true
-    mssql_password: '{{ sa_password }}'
-    mssql_edition: Developer
-    mssql_tcp_port: '{{ sql_port }}'
+  tasks:
+    - name: Ensure firewall ports are open for SQL microsoft.sql.server
+      include_role: 
+        name: pre-reqs
+
+    - name: Execute SQL Server install 
+      include_role:
+        name: microsoft.sql.server
+      vars:
+        mssql_accept_microsoft_odbc_driver_17_for_sql_server_eula: true
+        mssql_accept_microsoft_cli_utilities_for_sql_server_eula: true
+        mssql_accept_microsoft_sql_server_standard_eula: true
+        mssql_password: '{{ sa_password }}'
+        mssql_edition: Developer
+        mssql_tcp_port: '{{ sql_port }}'
+
+    - name: Connect to server and load sample database
+      include_role:
+        name: load-data
+
