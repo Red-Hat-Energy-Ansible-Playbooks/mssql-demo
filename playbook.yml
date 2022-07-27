@@ -1,7 +1,7 @@
 ## Ansible MSSQL Playbook
 
 - name: mssql-demo
-  hosts: '{{ sql_host }}'
+  hosts: '{{ inventory_host }}'
   become: yes
     
   collections: 
