@@ -13,5 +13,6 @@
     ports:
         - "8080:80"
     env:
-        SA_PASSWORD: "{{ sa_password }}"
-        SQL_HOST: "{{ sql_host }}"
+        SA_PASSWORD: '{{ sa_password }}'
+        SQL_HOST: '{{ sql_host }}'
+        SQL_PORT: '{{ sql_port }}'
