@@ -12,7 +12,7 @@
     
 - name: SQL Script Execution
   # Hardcoded file path/name.  Change to var at some point so any sql script an be used.
-  ansible.builtin.command: '/opt/mssql-tools/bin/sqlcmd -S {{ sql_host }},{{ sql_port }} -U sa -P "{{ sa_password }}" -i "/tmp/mssql-demo/files/northwind-pubs/instpubs.sql"'
+  ansible.builtin.command: '/opt/mssql-tools/bin/sqlcmd -S {{ sql_host }},{{ sql_port }} -U sa -P "{{ sa_password }}" -i "~/mssql-demo/files/northwind-pubs/instpubs.sql"'
 
   register: sqlcmd_out
 
