@@ -9,6 +9,7 @@
     image: localhost/sql-app
     state: started
     restart: yes
+    recreate: yes
     restart_policy: "no"
     ports:
         - "8080:80"

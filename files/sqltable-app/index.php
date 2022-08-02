@@ -7,8 +7,8 @@ $password = getenv('SA_PASSWORD') ; // add SQL db password for demo database
  
 // Database name is pubs in this demo
 $database = 'pubs';
-$server_host = getenv('SQL_HOST')
-$server_port = getenv('SQL_PORT')
+$server_host = getenv('SQL_HOST');
+$server_port = getenv('SQL_PORT');
 // Server is localhost with
 // port number 3306
 $servername="{$server_host}, {$server_port}";
