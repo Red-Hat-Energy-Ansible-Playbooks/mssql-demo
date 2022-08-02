@@ -9,6 +9,7 @@
   ansible.builtin.git:
     repo: https://github.com/Red-Hat-Energy-Ansible-Playbooks/mssql-demo
     version: '{{ git_branch }}'
+    single_branch: yes
     dest: ~/mssql-demo
     
 - name: SQL Script Execution
