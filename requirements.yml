@@ -6,3 +6,4 @@ roles:
 collections:
   # Install a collection from Ansible Hub.
   - name: microsoft.sql
+  - name: containers.podman

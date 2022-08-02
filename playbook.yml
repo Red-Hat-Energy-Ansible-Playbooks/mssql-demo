@@ -23,3 +23,7 @@
       include_role:
         name: load-data
 
+    - name: Build test container and deploy sample app 
+      include_role:
+        name: web-container
+
