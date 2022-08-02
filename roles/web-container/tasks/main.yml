@@ -1,0 +1,17 @@
+- name: Build a PHP app container for sql db testing
+  containers.podman.podman_image:
+    name: sql-app
+    path: ~/mssql-demo/files/sqltable-app
+
+- name: Start SQL php app container
+  containers.podman.podman_container:
+    name: sql-app
+    image: localhost/sql-app
+    state: started
+    restart: yes
+    restart_policy: "no"
+    ports:
+        - "8080:80"
+    env:
+        SA_PASSWORD: "{{ sa_password }}"
+        SQL_HOST: "{{ sql_host }}"

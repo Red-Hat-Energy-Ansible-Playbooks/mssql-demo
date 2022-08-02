@@ -1,14 +1,14 @@
 - name: Ensure directory does not exist
   file:
     state: absent
-    path: /tmp/mssql-demo
+    path: ~/mssql-demo
 
 - name: Clone sample database repo
   # Cloning to /tmp folder on host.  Also parameterize repo path and 
   # dest so any test data from a git could be used
   ansible.builtin.git:
     repo: https://github.com/Red-Hat-Energy-Ansible-Playbooks/mssql-demo
-    dest: /tmp/mssql-demo
+    dest: ~/mssql-demo
     
 - name: SQL Script Execution
   # Hardcoded file path/name.  Change to var at some point so any sql script an be used.
@@ -16,7 +16,7 @@
 
   register: sqlcmd_out
 
-- name: Cleanup files
-  file:
-    state: absent
-    path: /tmp/mssql-demo
+# - name: Cleanup files
+#   file:
+#     state: absent
+#     path: /tmp/mssql-demo

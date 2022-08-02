@@ -3,14 +3,15 @@
  
 // Username is root
 $user = 'sa';
-$password = '###' ; // add SQL db password for demo database
+$password = getenv('SA_PASSWORD') ; // add SQL db password for demo database
  
 // Database name is pubs in this demo
 $database = 'pubs';
- 
+$server_host = getenv('SQL_HOST')
+$server_port = getenv('SQL_PORT')
 // Server is localhost with
 // port number 3306
-$servername='dev.home.local, 1443';
+$servername="{$server_host}, {$server_port}";
 $connectionInfo = array( "Database"=>"$database", "UID"=>"$user", "PWD"=>"$password");
 $conn = sqlsrv_connect( $servername, $connectionInfo);
 
