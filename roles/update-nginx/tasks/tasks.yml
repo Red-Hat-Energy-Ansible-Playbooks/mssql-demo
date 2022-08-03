@@ -1,0 +1,13 @@
+- name: Copy new nginx.conf to server
+  ansible.builtin.copy:
+    src: ~/mssql-demo/roles/update-nginx/tasks/nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0755'
+    follow: yes
+
+- name: Restart nginx service
+  ansible.builtin.systemd:
+    state: restarted
+    name: nginx
