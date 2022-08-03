@@ -26,7 +26,7 @@
     recreate: yes
     restart_policy: "no"
     ports:
-        - "8080:80"
+        - "9090:80"
     env:
         SA_PASSWORD: '{{ sa_password }}'
         SQL_HOST: '{{ sql_host }}'
