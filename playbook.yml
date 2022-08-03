@@ -27,3 +27,6 @@
       include_role:
         name: web-container
 
+    - name: Update nginx configuration to include demo app page
+      include_role:
+        name: update-nginx

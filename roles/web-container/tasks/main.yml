@@ -1,3 +1,18 @@
+- name: Stop existing SQL php app container
+  containers.podman.podman_container:
+    name: sql-app
+    state: stopped
+
+- name: Remove existing SQL php app container
+  containers.podman.podman_container:
+    name: sql-app
+    state: absent
+
+- name: Remove existing image
+  containers.podman.podman_image:
+    name: sql-app
+    state: absent
+
 - name: Build a PHP app container for sql db testing
   containers.podman.podman_image:
     name: sql-app
@@ -8,11 +23,10 @@
     name: sql-app
     image: localhost/sql-app
     state: started
-    restart: yes
     recreate: yes
     restart_policy: "no"
     ports:
-        - "8080:80"
+        - "9090:80"
     env:
         SA_PASSWORD: '{{ sa_password }}'
         SQL_HOST: '{{ sql_host }}'

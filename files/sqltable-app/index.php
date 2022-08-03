@@ -42,7 +42,7 @@ $result = sqlsrv_query($conn, $query);
  
         h1 {
             text-align: center;
-            color: #FE0000;
+            color: #52FF33;
             font-size: xx-large;
             font-family: 'Gill Sans', 'Gill Sans MT',
             ' Calibri', 'Trebuchet MS', 'sans-serif';
