@@ -48,7 +48,7 @@ In the **Variables** section, add the following lines:
 ```
 sa_password: "Password for SA User"
 inventory_host: ansible-1
-sql_host: "localhost"
+sql_host: "ansible-1.example.com"
 sql_port: 1443
 git_branch: main
 ```
@@ -57,12 +57,21 @@ git_branch: main
 
 Replace the *Password for SA User* with a value for a password you want to use (10 Characters).
 
-Click Save at the bottom of the form.
+Click **Save** at the bottom of the form.
 
 
 ## Step 4: Launch the Template to Execute the Playbook
 
 From the newly created template, click **Launch**.
 
-A window will launch that will tail the log of the *Job* as it runs.
+A window will launch that will tail the log of the *Job* as it runs.  The log will stop and show results at the bottom when the job completes.  Successful jobs will also show green at the top.
+
+![Job Done](/images/JobDone.png)
+
+## Step 5: Verify the Exercise 
+
+The playbook completes by creating a sample website that links to the newly created database and displays a table.  The sample website can by found by browsing to the Visual Studio Code website link provided in the workshop by adding a **/sql-example** to the end of the URL.
+
+Example:  https://student1-code.rh3d62.example.opentlc.com/sql-example
+
 
