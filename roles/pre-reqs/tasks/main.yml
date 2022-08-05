@@ -8,4 +8,4 @@
     state: enabled
     permanent: true
     immediate: true
-  when: service_exists
+  when: service_exists == "true"

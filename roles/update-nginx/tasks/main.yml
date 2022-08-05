@@ -10,10 +10,10 @@
     group: root
     mode: '0755'
     follow: yes
-  when: service_exists
+  when: service_exists == "true"
 
 - name: Restart nginx service
   ansible.builtin.systemd:
     state: restarted
     name: nginx
-  when: service_exists
+  when: service_exists == "true"
