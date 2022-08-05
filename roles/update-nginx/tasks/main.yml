@@ -6,8 +6,10 @@
     group: root
     mode: '0755'
     follow: yes
+  when: ansible_facts.services['nginx.service'].state == 'running'  
 
 - name: Restart nginx service
   ansible.builtin.systemd:
     state: restarted
     name: nginx
+  when: ansible_facts.services['nginx.service'].state == 'running'  

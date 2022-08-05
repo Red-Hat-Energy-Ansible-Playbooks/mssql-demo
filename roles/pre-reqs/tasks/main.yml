@@ -1,5 +1,7 @@
-- name: "Open Port on Firewall"
-  ansible.posix.firewalld:
-    port: '{{ sql_port }}/tcp'
-    permanent: yes
+- name: Make sure port sql port and http/s are open if firewall is running
+  firewalld:
+    port: "{{ sql_port }}/tcp"
     state: enabled
+    permanent: true
+    immediate: true
+  when: ansible_facts.services['firewalld.service'].state == 'running'  
