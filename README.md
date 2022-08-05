@@ -51,6 +51,7 @@ inventory_host: ansible-1
 sql_host: "ansible-1.example.com"
 sql_port: 1443
 git_branch: main
+webapp_port: 8081
 ```
 
 ![Create Template 2](/images/JobTemplate2.png)

@@ -8,6 +8,10 @@
     - microsoft.sql
 
   tasks:
+    - name: Pre-reqs for opening port if firewalld is running
+      include_role: 
+        name: pre-reqs
+        
     - name: Execute SQL Server install 
       include_role:
         name: microsoft.sql.server

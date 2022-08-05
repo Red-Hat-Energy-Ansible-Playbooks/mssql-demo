@@ -1,3 +1,7 @@
+- name: Check if Nginx Service Exists
+  shell: "if systemctl list-unit-files | grep nginx;   then echo true;   else echo false; fi;"
+  register: service_exists
+
 - name: Copy new nginx.conf to server
   ansible.builtin.copy:
     src: roles/update-nginx/tasks/nginx.conf
@@ -6,8 +10,10 @@
     group: root
     mode: '0755'
     follow: yes
+  when: service_exists == "true"
 
 - name: Restart nginx service
   ansible.builtin.systemd:
     state: restarted
     name: nginx
+  when: service_exists == "true"
