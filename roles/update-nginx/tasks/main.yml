@@ -1,5 +1,5 @@
 - name: Check if Nginx Service Exists
-  shell: "if systemctl list-unit-files --list | grep -q nginx;   then echo true;   else echo false; fi;"
+  shell: "if systemctl list-unit-files | grep -q nginx;   then echo true;   else echo false; fi;"
   register: service_exists
 
 - name: Copy new nginx.conf to server

@@ -1,5 +1,5 @@
 - name: Check if Service Exists
-  shell: "if systemctl list-unit-files --list | grep -q firewalld;   then echo true;   else echo false; fi;"
+  shell: "if systemctl list-unit-files | grep -q firewalld;   then echo true;   else echo false; fi;"
   register: service_exists
 
 - name: Make sure port sql port and http/s are open if firewall is running
