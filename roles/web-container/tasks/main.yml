@@ -1,16 +1,18 @@
 - name: Stop existing SQL php app container
   containers.podman.podman_container:
     name: sql-app
+    image: localhost/sql-app
     state: stopped
 
 - name: Remove existing SQL php app container
   containers.podman.podman_container:
     name: sql-app
+    image: localhost/sql-app
     state: absent
 
 - name: Remove existing image
   containers.podman.podman_image:
-    name: sql-app
+    name: localhost/sql-app
     state: absent
 
 - name: Build a PHP app container for sql db testing
